@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "log_analyzer"
+version = "0.1.0"
+description = "Homework #1 Otus Python Developer. Professional"
+authors = ["Artem Balabashin <balabashinan@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+structlog = "^24.4.0"
+pytest = "^8.3.4"
+pylint = "^3.3.2"
+mypy = "^1.13.0"
+black = "^24.10.0"
+isort = "^5.13.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
