@@ -1,0 +1,29 @@
+name: Black, Isort, Pylint, and Mypy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip "poetry==1.8.2"
+        poetry config virtualenvs.create false --local
+        poetry install --no-dev
+    - name: Run linters
+      run: make startlinkers
