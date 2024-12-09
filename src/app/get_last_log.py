@@ -19,8 +19,8 @@ def get_last_log_file():
         except ValueError:
             continue
 
-        GZ = ".gz" in f
-        file_dates[date_int] = GZ
+        gz = ".gz" in f
+        file_dates[date_int] = gz
 
     try:
         last_file_date = max(file_dates)
@@ -34,5 +34,3 @@ def get_last_log_file():
 
     except ValueError:
         return "No logs"
-    except Exception as e:
-        return str(e)
