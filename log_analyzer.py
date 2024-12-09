@@ -6,6 +6,7 @@
 
 import argparse
 
+from src.app.log_handler.main import handler
 from src.config.config import config as default_config
 from src.config.load_config import load_config
 from src.config.merge_config import merge_config
@@ -27,8 +28,11 @@ def main():
 
     file_config = load_config(args.config)
 
-    final_config = merge_config(default_config, file_config)
-    # final config = {'REPORT_SIZE': 50, 'REPORT_DIR': './reports', 'LOG_DIR': './logs'}
+    report_config = merge_config(default_config, file_config)
+    # report config = {'REPORT_SIZE': 50, 'REPORT_DIR': './reports', 'LOG_DIR': './logs'}
+    print(f"final config = {report_config}")
+
+    log_handler = handler(report_config)
 
 
 if __name__ == "__main__":

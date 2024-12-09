@@ -1,10 +1,10 @@
 import re
 from pathlib import Path
 
-logs_dir = Path(__file__).resolve().parent.parent.parent / "logs"
 
+def get_last_log_file(logs_dir):
+    logs_dir = Path(logs_dir) if isinstance(logs_dir, str) else logs_dir
 
-def get_last_log_file():
     files = [f.name for f in logs_dir.iterdir() if f.is_file()]
 
     file_dates = {}
