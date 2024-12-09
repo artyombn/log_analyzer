@@ -10,4 +10,4 @@ def gzip_handler(log_file_name, logs_dir):
                 break
             print(line.strip())
 
-    print(f"GZIP_HANDLER done")
+    print("GZIP_HANDLER done")

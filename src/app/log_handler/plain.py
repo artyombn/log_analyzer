@@ -4,4 +4,4 @@ def plain_handler(log_file_name, logs_dir):
             if i >= 10:
                 break
             print(line.strip())
-    print(f"PLAIN_HANDLER done")
+    print("PLAIN_HANDLER done")

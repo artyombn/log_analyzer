@@ -5,9 +5,10 @@
 
 
 import argparse
+
+from src.config.config import config as default_config
 from src.config.load_config import load_config
 from src.config.merge_config import merge_config
-from src.config.config import config as default_config
 
 
 def parse_args():
