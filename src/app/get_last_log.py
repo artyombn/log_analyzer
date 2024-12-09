@@ -1,8 +1,8 @@
 import re
 from pathlib import Path
 
-
 logs_dir = Path(__file__).resolve().parent.parent.parent / "logs"
+
 
 def get_last_log_file():
     files = [f.name for f in logs_dir.iterdir() if f.is_file()]
@@ -36,4 +36,3 @@ def get_last_log_file():
         return "No logs"
     except Exception as e:
         return str(e)
-
