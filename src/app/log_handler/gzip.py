@@ -13,7 +13,12 @@ def gzip_handler(log_file_name, report_size, logs_dir):
         for i, line in enumerate(log_file, start=1):
             if i >= report_size + 1:
                 break
-            log_data.append(parse_log_line(line))
+            z = parse_log_line(line)
+
+            if not z:
+                continue
+
+            log_data.append(z)
 
     if not log_data:
         return "No valid log data found"

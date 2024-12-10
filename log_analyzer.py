@@ -8,6 +8,7 @@ import argparse
 
 from src.app.log_handler.main import handler
 from src.app.log_parsing.collect_stats import collect_statistics
+from src.app.log_parsing.generate_report import generate_report
 from src.config.config import config as default_config
 from src.config.load_config import load_config
 from src.config.merge_config import merge_config
@@ -26,18 +27,11 @@ def parse_args():
 
 def main():
     args = parse_args()
-
     file_config = load_config(args.config)
-
     report_config = merge_config(default_config, file_config)
-    # report config = {'REPORT_SIZE': 50, 'REPORT_DIR': './reports', 'LOG_DIR': './logs'}
-    print(f"final config = {report_config}")
-
     log_handler = handler(report_config)
-    print(f"log_handler {log_handler}")
-
     stats = collect_statistics(log_handler)
-    print(f"test = {stats}")
+    report = generate_report(stats, report_config)
 
 
 if __name__ == "__main__":
