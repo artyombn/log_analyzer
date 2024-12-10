@@ -7,6 +7,7 @@
 import argparse
 
 from src.app.log_handler.main import handler
+from src.app.log_parsing.collect_stats import collect_statistics
 from src.config.config import config as default_config
 from src.config.load_config import load_config
 from src.config.merge_config import merge_config
@@ -33,6 +34,10 @@ def main():
     print(f"final config = {report_config}")
 
     log_handler = handler(report_config)
+    print(f"log_handler {log_handler}")
+
+    stats = collect_statistics(log_handler)
+    print(f"test = {stats}")
 
 
 if __name__ == "__main__":
