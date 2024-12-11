@@ -26,5 +26,3 @@ def generate_report(stats, config):
 
     with open(output_path, "w", encoding="utf-8") as report:
         report.write(html_content)
-
-    print(f"HTML сгенерирован {REPORT_NAME}")

@@ -30,7 +30,7 @@ def main():
     file_config = load_config(args.config)
     report_config = merge_config(default_config, file_config)
     log_handler = handler(report_config)
-    stats = collect_statistics(log_handler)
+    stats = collect_statistics(log_handler, report_config)
     report = generate_report(stats, report_config)
 
 
