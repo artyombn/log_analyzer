@@ -19,5 +19,5 @@ def gzip_handler(log_file_name, logs_dir):
             log_data.append(z)
 
     if not log_data:
-        return "No valid log data found"
+        return "No logs"
     return log_data

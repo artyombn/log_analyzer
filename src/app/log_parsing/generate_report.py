@@ -12,7 +12,7 @@ REPORT_NAME = f"report-{current_date}.html"
 
 def generate_report(stats, config):
 
-    json_str = json.dumps(stats, indent=4)
+    json_str = json.dumps(stats)
 
     with open(template_file, "r", encoding="utf-8") as template:
         template_content = template.read()

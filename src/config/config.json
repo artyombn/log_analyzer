@@ -1,5 +1,5 @@
 {
-    "REPORT_SIZE": 30,
+    "REPORT_SIZE": 50,
     "REPORT_DIR": "./reports",
     "LOG_DIR": "./logs"
 }

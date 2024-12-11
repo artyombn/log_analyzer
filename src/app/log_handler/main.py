@@ -13,4 +13,4 @@ def handler(config):
         return gzip_handler(log_file_name[0], log_dir)
     if not log_file_name[1] and log_file_name != "No logs":
         return plain_handler(log_file_name[0], log_dir)
-    raise FileNotFoundError("No log file or directory")
+    return "No logs"
