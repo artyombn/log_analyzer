@@ -1,4 +1,4 @@
-name: Black, Isort, Pylint, and Mypy
+name: Black, Isort, Pylint, Mypy and Pytest
 
 on:
   push:
@@ -27,3 +27,5 @@ jobs:
         poetry install --no-dev
     - name: Run linters
       run: make startlinkers
+    - name: Run test
+      run: make startpytest
