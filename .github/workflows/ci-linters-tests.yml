@@ -26,6 +26,6 @@ jobs:
         poetry config virtualenvs.create false --local
         poetry install --no-dev
     - name: Run linters
-      run: make startlinkers
+      run: make startlinters
     - name: Run test
       run: make startpytest
