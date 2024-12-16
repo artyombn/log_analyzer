@@ -24,19 +24,19 @@ logs_content = [
 
 parametrize_for_gzip = [
     (
-        ["tests-nginx-access-ui.log-20240628.gz", True],
+        ["tests-nginx-access-ui.log-20170628.gz", True],
         "./logs",
         logs_content,
         does_not_raise(),
     ),
     (
-        ["tests-nginx-access-ui.log-20240628", False],
+        ["tests-nginx-access-ui.log-20170628", False],
         "./logs",
         logs_content,
         pytest.raises(gzip.BadGzipFile),
     ),
     (
-        ["wrong-name-nginx-access-ui.log-20240628", False],
+        ["wrong-name-nginx-access-ui.log-20170628", False],
         "./logs",
         "No logs",
         pytest.raises(FileNotFoundError),
@@ -57,19 +57,19 @@ parametrize_for_gzip = [
 
 parametrize_for_plain = [
     (
-        ["tests-nginx-access-ui.log-20240628.gz", True],
+        ["tests-nginx-access-ui.log-20170628.gz", True],
         "./logs",
         logs_content,
         pytest.raises(UnicodeDecodeError),
     ),
     (
-        ["tests-nginx-access-ui.log-20240628", False],
+        ["tests-nginx-access-ui.log-20170628", False],
         "./logs",
         logs_content,
         does_not_raise(),
     ),
     (
-        ["wrong-name-nginx-access-ui.log-20240628", False],
+        ["wrong-name-nginx-access-ui.log-20170628", False],
         "./logs",
         "No logs",
         pytest.raises(FileNotFoundError),
@@ -91,19 +91,19 @@ parametrize_for_plain = [
 
 parametrize_for_handler = [
     (
-        ["tests-nginx-access-ui.log-20240628.gz", True],
+        ["tests-nginx-access-ui.log-20170628.gz", True],
         {"LOG_DIR": "./logs"},
         logs_content,
         does_not_raise(),
     ),
     (
-        ["tests-nginx-access-ui.log-20240628", False],
+        ["tests-nginx-access-ui.log-20170628", False],
         {"LOG_DIR": "./logs"},
         logs_content,
         does_not_raise(),
     ),
     (
-        ["wrong-name-nginx-access-ui.log-20240628", False],
+        ["wrong-name-nginx-access-ui.log-20170628", False],
         {"LOG_DIR": "./logs"},
         "No logs",
         pytest.raises(FileNotFoundError),

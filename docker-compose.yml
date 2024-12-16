@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  linters:
+    build: .
+    working_dir: /app
+    command: make startlinters
+    volumes:
+      - .:/app
+
+  pytest:
+    build: .
+    working_dir: /app
+    command: make startpytest
+    volumes:
+      - .:/app
+    depends_on:
+      - linters
+
+  log_analyzer:
+    build: .
+    command: python -m log_analyzer --config /app/config/config.json
+    volumes:
+      - ./logs:/app/logs
+      - ./src/config:/app/config
+      - ./reports:/app/reports
+    depends_on:
+      - pytest
