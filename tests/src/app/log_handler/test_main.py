@@ -20,7 +20,7 @@ from tests.src.app.log_handler.test_data import (
 )
 def test_gzip_handler(log_file_name, LOG_DIR, log_data, expectation):
     with expectation:
-        assert logs_content == gzip_handler(log_file_name[0], LOG_DIR)
+        assert log_data == gzip_handler(log_file_name[0], LOG_DIR)
 
 
 @pytest.mark.parametrize(
@@ -29,7 +29,7 @@ def test_gzip_handler(log_file_name, LOG_DIR, log_data, expectation):
 )
 def test_plain_handler(log_file_name, LOG_DIR, log_data, expectation):
     with expectation:
-        assert logs_content == plain_handler(log_file_name[0], LOG_DIR)
+        assert log_data == plain_handler(log_file_name[0], LOG_DIR)
 
 
 @pytest.mark.parametrize(
@@ -42,8 +42,8 @@ def test_handler(mock_get_last_log_file, log_file_name, config, log_data, expect
         mock_get_last_log_file.return_value = log_file_name
 
         if log_file_name[1] and log_file_name != "No logs":
-            assert logs_content == handler(config)
+            assert log_data == handler(config)
         elif not log_file_name[1] and log_file_name != "No logs":
-            assert logs_content == handler(config)
+            assert log_data == handler(config)
         else:
             assert handler(config) == "No logs"

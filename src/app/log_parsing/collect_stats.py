@@ -8,6 +8,9 @@ def collect_statistics(log_data, config):
         report_size = config["REPORT_SIZE"]
 
         for log in log_data:
+            if log is None:
+                continue
+
             url = log["url"]
             request_time = log["request_time"]
 

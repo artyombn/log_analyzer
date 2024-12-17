@@ -3,6 +3,7 @@ from pathlib import Path
 
 
 def get_last_log_file(logs_dir):
+
     logs_dir = Path(logs_dir) if isinstance(logs_dir, str) else logs_dir
     try:
         files = [f.name for f in logs_dir.iterdir() if f.is_file()]

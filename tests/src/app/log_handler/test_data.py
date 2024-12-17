@@ -39,19 +39,19 @@ parametrize_for_gzip = [
         ["wrong-name-nginx-access-ui.log-20170628", False],
         "./logs",
         "No logs",
-        pytest.raises(FileNotFoundError),
+        does_not_raise(),
     ),
     (
         "No logs",
         "./logs",
         "No logs",
-        pytest.raises(FileNotFoundError),
+        does_not_raise(),
     ),
     (
         "No logs",
         "./other_logs",
         "No logs",
-        pytest.raises(FileNotFoundError),
+        does_not_raise(),
     ),
 ]
 
@@ -72,19 +72,19 @@ parametrize_for_plain = [
         ["wrong-name-nginx-access-ui.log-20170628", False],
         "./logs",
         "No logs",
-        pytest.raises(FileNotFoundError),
+        does_not_raise(),
     ),
     (
         "No logs",
         "./logs",
         "No logs",
-        pytest.raises(FileNotFoundError),
+        does_not_raise(),
     ),
     (
         "No logs",
         "./other_logs",
         "No logs",
-        pytest.raises(FileNotFoundError),
+        does_not_raise(),
     ),
 ]
 
@@ -92,31 +92,31 @@ parametrize_for_plain = [
 parametrize_for_handler = [
     (
         ["tests-nginx-access-ui.log-20170628.gz", True],
-        {"LOG_DIR": "./logs"},
+        {"LOG_DIR": "./logs", "REPORT_DIR": "./reports"},
         logs_content,
         does_not_raise(),
     ),
     (
         ["tests-nginx-access-ui.log-20170628", False],
-        {"LOG_DIR": "./logs"},
+        {"LOG_DIR": "./logs", "REPORT_DIR": "./reports"},
         logs_content,
         does_not_raise(),
     ),
     (
         ["wrong-name-nginx-access-ui.log-20170628", False],
-        {"LOG_DIR": "./logs"},
-        "No logs",
-        pytest.raises(FileNotFoundError),
-    ),
-    (
-        "No logs",
-        {"LOG_DIR": "./logs"},
+        {"LOG_DIR": "./logs", "REPORT_DIR": "./reports"},
         "No logs",
         does_not_raise(),
     ),
     (
         "No logs",
-        {"LOG_DIR": "./other_logs"},
+        {"LOG_DIR": "./logs", "REPORT_DIR": "./reports"},
+        "No logs",
+        does_not_raise(),
+    ),
+    (
+        "No logs",
+        {"LOG_DIR": "./logs", "REPORT_DIR": "./reports"},
         "No logs",
         does_not_raise(),
     ),

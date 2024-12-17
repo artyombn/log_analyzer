@@ -5,6 +5,7 @@
 
 
 import argparse
+import sys
 
 from src.app.log_handler.main import handler
 from src.app.log_parsing.collect_stats import collect_statistics
@@ -30,6 +31,8 @@ def main():
     file_config = load_config(args.config)
     report_config = merge_config(default_config, file_config)
     log_handler = handler(report_config)
+    if log_handler == "Sys.exit":
+        sys.exit(0)
     stats = collect_statistics(log_handler, report_config)
     report = generate_report(stats, report_config)
 
